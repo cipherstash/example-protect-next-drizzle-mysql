@@ -1,7 +1,9 @@
-import { mysqlTable, int, json, uniqueIndex } from 'drizzle-orm/mysql-core'
+import { mysqlTable, int, json, text, uniqueIndex } from 'drizzle-orm/mysql-core'
 
 export const users = mysqlTable('users', {
   id: int().primaryKey().autoincrement(),
-  name: json(),
-  email: json(),
+  name: text().notNull(),
+  email: text().notNull(),
+  nameEncrypted: json(),
+  emailEncrypted: json(),
 })
